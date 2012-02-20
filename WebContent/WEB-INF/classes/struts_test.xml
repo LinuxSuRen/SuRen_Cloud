@@ -1,0 +1,39 @@
+<!DOCTYPE struts PUBLIC  
+           "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"  
+           "http://struts.apache.org/dtds/struts-2.0.dtd">  
+<struts>
+	<!-- 让Spring来管理action -->
+	<constant name="struts.objectFactory" value="spring" />
+	<!-- 设置 上传文件的临时文件目录 -->
+	<constant name="struts.multipart.saveDir" value="D:/Work/Application/CBTES/uploadfile"></constant>
+		
+	<package name="suren_test" extends="json-default">
+		<action name="test" class="org.suren.action.TestAction">
+			<result name="success">success.jsp</result>
+		</action>
+		<action name="json" class="org.suren.action.JsonAction">
+			<result name="json" type="json"></result>
+		</action>
+		<action name="upload" class="org.suren.action.UploadAction">
+			<interceptor-ref name ="fileUploadStack" />
+			<result name="upload">upload.jsp</result>
+		</action>
+		<action name="download" class="org.suren.action.DownloadAction">
+			<result name="download" type="stream">
+				<param name="contentType">text/plain</param>
+				<param name="inputName">inputStream</param>
+				<param name="contentDisposition">attachment;filename="${fileName}"</param>
+				<param name="buffersize">2048</param>
+			</result>
+		</action>
+		<action name="page" class="org.suren.action.PageAction">
+			<result name="success">paging.jsp</result>
+		</action>
+		<action name="cache" class="org.suren.action.CacheAction">
+			<result name="success">test.jsp</result>
+		</action>
+		<action name="spring" class="org.suren.action.SpringAction">
+			<result name="success">test.jsp</result>
+		</action>
+	</package>
+</struts>
