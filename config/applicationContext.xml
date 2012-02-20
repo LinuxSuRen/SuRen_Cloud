@@ -34,9 +34,7 @@
 		</property>
 		<property name="hibernateProperties">
 			<props>
-				<prop key="hibernate.dialect">
-					org.hibernate.dialect.MySQLDialect
-				</prop>
+				<prop key="hibernate.dialect">${db.dialect}</prop>
 				<!-- 
 				 -->
 				<prop key="hibernate.hbm2ddl.auto">${db.ddl}</prop>
