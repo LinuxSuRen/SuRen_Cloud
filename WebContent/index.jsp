@@ -7,6 +7,6 @@
 <title></title>
 </head>
 <body>
-<a href="test/test.jsp">go to test page.</a>
+<a href="test/test.jsp">go to test page.测试页面</a>
 </body>
 </html>
