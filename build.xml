@@ -5,9 +5,10 @@
 	</description>
 
 	<property name="suren" location="D:/Work/Application/SuRen_Cloud"/>
-	
+	<property name="pack" location="D:\Work\Server\apache-tomcat-7.0.26\webapps"/>
+
 	<target name="war">
-		<war destfile="${suren}/SuRen_Cloud.war" webxml="${suren}/WebContent/WEB-INF/web.xml">
+		<war destfile="${pack}/SuRen_Cloud.war" webxml="${suren}/WebContent/WEB-INF/web.xml">
 			<fileset dir="${suren}/WebContent" />
 			<lib dir="${suren}/WebContent/WEB-INF/lib" />
 			<classes dir="${suren}/WebContent/WEB-INF/classes" />
