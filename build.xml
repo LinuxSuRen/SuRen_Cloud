@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <project name="SuRen" basedir="." default="war">
 	<description>
-		SuRen Ant File.
+		SuRen_Clound Ant File.
 	</description>
 
 	<property name="suren" location="D:/Work/Application/SuRen_Cloud"/>
