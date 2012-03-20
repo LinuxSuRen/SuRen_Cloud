@@ -24,7 +24,7 @@ ServletResponseAware
 	private static final long	serialVersionUID	= 1L;
 
 	protected Logger log = Logger.getLogger(BaseAction.class);
-	
+
 	public static final String SUCCESS = "success";
 	public static final String JSON = "json";
 	public static final String UPLOAD = "upload";
@@ -34,12 +34,12 @@ ServletResponseAware
 	@Override
 	public void setServletRequest(HttpServletRequest arg0) {
 		this.request = arg0;
-		
+
 	}
 	@Override
 	public void setServletResponse(HttpServletResponse arg0) {
 		this.response = arg0;
-		
+
 	}
-	
+
 }

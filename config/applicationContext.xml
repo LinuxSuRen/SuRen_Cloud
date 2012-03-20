@@ -13,7 +13,7 @@
 			<value>classpath:suren.properties</value>
 		</property>
 	</bean>
-	
+
 	<context:component-scan base-package='org.suren' />
 
 	<bean
@@ -35,7 +35,7 @@
 		<property name="hibernateProperties">
 			<props>
 				<prop key="hibernate.dialect">${db.dialect}</prop>
-				<!-- 
+				<!--
 				 -->
 				<prop key="hibernate.hbm2ddl.auto">${db.ddl}</prop>
 				<prop key="hibernate.show_sql">${show_sql}</prop>
@@ -46,18 +46,18 @@
 					org.hibernate.cache.EhCacheProvider
 				</prop>
 				<prop key="hibernate.generate_statistics">true</prop>
-				<!-- <prop key="hibernate.cache.use_query_cache">true</prop> <prop key="hibernate.query.factory_class"> 
+				<!-- <prop key="hibernate.cache.use_query_cache">true</prop> <prop key="hibernate.query.factory_class">
 					org.hibernate.hql.ast.ASTQueryTranslatorFactory </prop> -->
 			</props>
 		</property>
 		<property name="packagesToScan" value="org.suren.*" />
-		
+
 	</bean>
 
 	<bean id="transactionManager"
 		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
-	
+
 	<tx:annotation-driven transaction-manager="transactionManager" />
 </beans>

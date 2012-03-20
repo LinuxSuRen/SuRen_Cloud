@@ -6,12 +6,17 @@
 
 	<property name="suren" location="D:/Work/Application/SuRen_Cloud"/>
 	<property name="pack" location="D:\Work\Server\apache-tomcat-7.0.26\webapps"/>
+	<property name="name" value="SuRen_Cloud.war"></property>
 
-	<target name="war">
-		<war destfile="${pack}/SuRen_Cloud.war" webxml="${suren}/WebContent/WEB-INF/web.xml">
+	<target name="war" depends="clean">
+		<war destfile="${pack}/${name}" webxml="${suren}/WebContent/WEB-INF/web.xml">
 			<fileset dir="${suren}/WebContent" />
 			<lib dir="${suren}/WebContent/WEB-INF/lib" />
 			<classes dir="${suren}/WebContent/WEB-INF/classes" />
 		</war>
+	</target>
+
+	<target name="clean">
+		<delete file="${pack}/${name}"></delete>
 	</target>
 </project>
