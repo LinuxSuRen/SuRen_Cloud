@@ -4,6 +4,8 @@
 package org.suren.action;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.suren.core.SuRenContext;
+import org.suren.entity.AccountType;
 import org.suren.entity.User;
 import org.suren.servcie.UserService;
 
@@ -29,16 +31,23 @@ public class LoginAction extends BaseAction {
 	{
 		User user = service.find(new User(account));
 
-		if(user == null)
+		if(isLegal(user))
 		{
-			return ERROR;
-		}
-		else
-		{
-			this.getCurrentUser(user);
+			this.getRequest().getSession().setAttribute(SuRenContext.SESSION, user);
 
 			return SUCCESS;
 		}
+
+		return ERROR;
+	}
+
+	public String logout()
+	{
+		User user = new User(AccountType.vistor, "Vistor");
+
+		this.getRequest().getSession().setAttribute(SuRenContext.SESSION, user);
+
+		return SUCCESS;
 	}
 
 	public String sign()
@@ -51,6 +60,16 @@ public class LoginAction extends BaseAction {
 		service.save(user);
 
 		return "sign";
+	}
+
+	private boolean isLegal(User user)
+	{
+		if(user == null)
+		{
+			return false;
+		}
+
+		return true;
 	}
 
 	/**

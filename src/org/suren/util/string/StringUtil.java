@@ -2,7 +2,7 @@
  * Create Date: 2012-2-1<br>
  * File Name: StringUtil.java
  */
-package org.suren.util;
+package org.suren.util.string;
 
 /**
  * @author Administrator<br>
@@ -16,7 +16,7 @@ public class StringUtil
 	{
 		return str == null || "".equals(str);
 	}
-	
+
 	public static boolean isNotEmpty(String str)
 	{
 		return str != null && !"".equals(str);

@@ -3,6 +3,7 @@
  */
 package org.suren.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -19,10 +20,14 @@ public class User {
 	@GenericGenerator(name = "uuid", strategy = "uuid")
 	@GeneratedValue(generator = "uuid")
 	private String id;
+	@Column(unique = true, nullable = false)
 	private String account;
 	private String password;
-	private String name;
-	private String gender;
+	@Column(nullable = false)
+	private AccountType type = AccountType.customer;
+	private Status status = Status.enable;
+	private String name = this.account;
+	private Gender gender = Gender.male;
 	private String email;
 	/**
 	 *
@@ -34,6 +39,14 @@ public class User {
 	 */
 	public User(String account) {
 		this.account = account;
+	}
+	/**
+	 * @param type
+	 * @param name
+	 */
+	public User(AccountType type, String name) {
+		this.type = type;
+		this.name = name;
 	}
 	/**
 	 * @return the id
@@ -72,6 +85,30 @@ public class User {
 		this.password = password;
 	}
 	/**
+	 * @return the type
+	 */
+	public AccountType getType() {
+		return type;
+	}
+	/**
+	 * @param type the type to set
+	 */
+	public void setType(AccountType type) {
+		this.type = type;
+	}
+	/**
+	 * @return the status
+	 */
+	public Status getStatus() {
+		return status;
+	}
+	/**
+	 * @param status the status to set
+	 */
+	public void setStatus(Status status) {
+		this.status = status;
+	}
+	/**
 	 * @return the name
 	 */
 	public String getName() {
@@ -86,13 +123,13 @@ public class User {
 	/**
 	 * @return the gender
 	 */
-	public String getGender() {
+	public Gender getGender() {
 		return gender;
 	}
 	/**
 	 * @param gender the gender to set
 	 */
-	public void setGender(String gender) {
+	public void setGender(Gender gender) {
 		this.gender = gender;
 	}
 	/**

@@ -1,9 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE struts PUBLIC
-           "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
-           "http://struts.apache.org/dtds/struts-2.0.dtd">
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
-	<!-- 设置 上传文件的临时文件目录 -->
+	<!--
+			<interceptor-ref name="loginStack" />
+		<default-interceptor-ref name="loginStack" />
+	-->
+
 	<package name="suren_login" extends="suren">
+		<interceptors>
+			<interceptor name="login" class="org.suren.authority.AuthorityInterceptor" />
+
+			<interceptor-stack name="loginStack">
+				<interceptor-ref name="login" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+		</interceptors>
+
 		<action name="login" class="org.suren.action.LoginAction">
 			<result name="success">/index.jsp</result>
 			<result name="error">/page/login/login.jsp</result>

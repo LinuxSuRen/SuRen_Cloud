@@ -4,26 +4,26 @@
 		SuRen_Clound Ant File.
 	</description>
 
-	<property name="suren" location="D:/Work/Application/SuRen_Cloud"/>
-	<property name="pack" location="D:\Work\Server\apache-tomcat-7.0.26\webapps"/>
+	<property environment="env" />
+	<property name="suren" location="D:/Work/Application/SuRen_Cloud" />
+	<property name="pack" location="C:/users/suren/desktop" />
 	<property name="name" value="SuRen_Cloud.war"></property>
 
 	<target name="war" depends="clean">
 		<war destfile="${pack}/${name}" webxml="${suren}/WebContent/WEB-INF/web.xml">
 			<fileset dir="${suren}/WebContent" />
 			<lib dir="${suren}/WebContent/WEB-INF/lib" />
-			<classes dir="${suren}/WebContent/WEB-INF/classes" />
 		</war>
 	</target>
 
-	<target name="clean">
+	<target name="clean" depends="pre">
 		<delete file="${pack}/${name}"></delete>
-		<delete dir="${pack}"></delete>
+		<echo file="${date}"></echo>
 	</target>
 
 	<target name="pre">
 		<exec executable="cmd.exe" os="Windows 7">
-			<arg line="/c arp -a" />
+			<arg line="/c time /t" />
 		</exec>
 	</target>
 </project>

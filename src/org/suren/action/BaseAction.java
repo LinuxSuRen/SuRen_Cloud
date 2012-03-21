@@ -4,8 +4,6 @@
  */
 package org.suren.action;
 
-import java.util.Map;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -25,7 +23,7 @@ import com.opensymphony.xwork2.Preparable;
  * Create Time: 05:01:23<br>
  * 包含action中常用的属性以及方法
  */
-public class BaseAction extends ActionSupport implements ServletRequestAware,
+public abstract class BaseAction extends ActionSupport implements ServletRequestAware,
 ServletResponseAware, Preparable
 {
 	private static final long	serialVersionUID	= 1L;
@@ -40,6 +38,11 @@ ServletResponseAware, Preparable
 
 	private HttpServletRequest request;
 	private HttpServletResponse response;
+
+	/* 该模块的默认功能
+	 * @see com.opensymphony.xwork2.ActionSupport#execute()
+	 */
+	public abstract String execute();
 
 	@Override
 	public void prepare() throws Exception {
@@ -67,25 +70,16 @@ ServletResponseAware, Preparable
 		this.response = arg0;
 	}
 
-	protected Map<String, Object> getCurrentSession() {
-		return ActionContext.getContext().getSession();
+	protected HttpSession getCurrentSession() {
+		return getRequest().getSession();
 	}
 
-	protected User getCurrentUser(User user)
+	protected User getCurrentUser()
 	{
-		Map<String, Object> session = getCurrentSession();
+		HttpSession session = getCurrentSession();
 
-		Object sessionUser = session.get(SuRenContext.SESSION);
+		User sessionUser = (User) session.getAttribute(SuRenContext.SESSION);
 
-		if(sessionUser == null)
-		{
-			session.put(SuRenContext.SESSION, user);
-		}
-		else
-		{
-			user = (User) sessionUser;
-		}
-
-		return user;
+		return sessionUser;
 	}
 }

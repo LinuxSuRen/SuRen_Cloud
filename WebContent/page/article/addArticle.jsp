@@ -4,22 +4,23 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Login page.</title>
+<title>add article</title>
 </head>
 <body>
-<form action="${contextPath }/login.action" method="post">
+
+<form action="${contextPath }/article!add.action" method="post">
 <table>
 	<tr>
-		<td>Account:</td>
-		<td><input name="account" value="${account }" /></td>
+		<td>Title:</td>
+		<td><input name="title" /></td>
 	</tr>
 	<tr>
-		<td>Password:</td>
-		<td><input name="password" type="password" /></td>
+		<td>Content:</td>
+		<td><textarea cols="10" rows="10" name="content"></textarea></td>
 	</tr>
 	<tr>
-		<td><input type="submit" value="login" /></td>
-		<td><input type="reset" value="reset" /></td>
+		<td><input type="submit" value="submit" /></td>
+		<td><input type="reset" value="Reset" /></td>
 	</tr>
 </table>
 </form>
