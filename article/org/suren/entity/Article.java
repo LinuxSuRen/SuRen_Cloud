@@ -3,6 +3,7 @@
  */
 package org.suren.entity;
 
+import java.io.File;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -18,8 +19,8 @@ import org.hibernate.annotations.GenericGenerator;
  * @author suren
  *
  */
-@Entity
-public class Article {
+@Entity(name = "suren_article")
+public class Article extends AbstractEntity {
 	@Id
 	@GenericGenerator(name = "uuid", strategy = "uuid")
 	@GeneratedValue(generator = "uuid")
@@ -30,6 +31,8 @@ public class Article {
 	private User author;
 	@Lob
 	private String content;
+	@Lob
+	private File attachment;
 	private String ref;
 	@Column(nullable = false)
 	private Date createDate;
@@ -87,6 +90,18 @@ public class Article {
 	 */
 	public void setContent(String content) {
 		this.content = content;
+	}
+	/**
+	 * @return the attachment
+	 */
+	public File getAttachment() {
+		return attachment;
+	}
+	/**
+	 * @param attachment the attachment to set
+	 */
+	public void setAttachment(File attachment) {
+		this.attachment = attachment;
 	}
 	/**
 	 * @return the ref

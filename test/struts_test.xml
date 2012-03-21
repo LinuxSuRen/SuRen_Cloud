@@ -3,7 +3,7 @@
            "http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
 	<!-- 设置 上传文件的临时文件目录 -->
-	<constant name="struts.multipart.saveDir" value="D:/Work/Application/CBTES/uploadfile"></constant>
+	<constant name="struts.multipart.saveDir" value="D:/uploadfile"></constant>
 
 	<package name="suren_test" extends="suren">
 		<action name="test" class="org.suren.action.TestAction">

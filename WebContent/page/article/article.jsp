@@ -15,11 +15,11 @@
 
 <table>
 <tr>
-	<td>Title</td><td>Content</td>
+	<td>Title</td><td>Content</td><td>Attachment</td>
 </tr>
 <c:forEach items="${articles }" var="article" varStatus="i">
 <tr>
-	<td>${article.title }</td><td>${article.content }</td>
+	<td>${article.title }</td><td>${article.content }</td><td>${article.attachment }</td>
 </tr>
 </c:forEach>
 </table>

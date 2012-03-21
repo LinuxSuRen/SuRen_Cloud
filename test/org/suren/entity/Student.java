@@ -16,9 +16,9 @@ import org.hibernate.annotations.GenericGenerator;
  * @author Administrator<br>
  * Create Time: 01:02:18<br>
  */
-@Entity
+@Entity(name = "suren_student")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-public class Student
+public class Student extends AbstractEntity
 {
 	@Id
 	@GenericGenerator(name = "uuid", strategy = "uuid")

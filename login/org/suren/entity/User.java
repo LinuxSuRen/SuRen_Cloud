@@ -14,8 +14,8 @@ import org.hibernate.annotations.GenericGenerator;
  * @author suren
  *
  */
-@Entity
-public class User {
+@Entity(name = "suren_user")
+public class User extends AbstractEntity{
 	@Id
 	@GenericGenerator(name = "uuid", strategy = "uuid")
 	@GeneratedValue(generator = "uuid")

@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<form action="${contextPath }/article!add.action" method="post">
+<form action="${contextPath }/article!add.action" method="post" enctype="multipart/form-data">
 <table>
 	<tr>
 		<td>Title:</td>
@@ -17,6 +17,10 @@
 	<tr>
 		<td>Content:</td>
 		<td><textarea cols="10" rows="10" name="content"></textarea></td>
+	</tr>
+	<tr>
+		<td>Attachment:</td>
+		<td><input name="attachment" type="file" /></td>
 	</tr>
 	<tr>
 		<td><input type="submit" value="submit" /></td>
