@@ -4,9 +4,6 @@
  */
 package org.suren.action;
 
-import javax.annotation.Resource;
-
-import org.suren.action.BaseAction;
 import org.suren.test.BeanTestInterface;
 
 
@@ -18,15 +15,15 @@ public class SpringAction extends BaseAction
 {
 
 	private static final long	serialVersionUID	= 1L;
-	
+
 	private BeanTestInterface beanTest;
-	
+
 	public String execute()
 	{
 		System.out.println("BeanTest : " + beanTest);
 
 		beanTest.sayMyName();
-		
+
 		return SUCCESS;
 	}
 

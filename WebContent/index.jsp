@@ -8,5 +8,10 @@
 </head>
 <body>
 <a href="test/test.jsp">go to test page.测试页面</a>
+<hr>${session }
+<div>
+<a href="/suren/login.action">Login</a>
+<a href="page/login/sign.jsp">Sign</a>
+</div>
 </body>
 </html>

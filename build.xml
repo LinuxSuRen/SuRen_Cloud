@@ -18,5 +18,12 @@
 
 	<target name="clean">
 		<delete file="${pack}/${name}"></delete>
+		<delete dir="${pack}"></delete>
+	</target>
+
+	<target name="pre">
+		<exec executable="cmd.exe" os="Windows 7">
+			<arg line="/c arp -a" />
+		</exec>
 	</target>
 </project>

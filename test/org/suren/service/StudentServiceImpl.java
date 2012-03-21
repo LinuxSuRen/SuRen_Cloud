@@ -6,7 +6,6 @@ package org.suren.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import org.suren.dao.StudentDao;
 import org.suren.entity.Student;
 import org.suren.util.Page;
@@ -47,9 +46,9 @@ public class StudentServiceImpl implements StudentService
 	public Student findById(String id)
 	{
 		Student stu = studentDao.findStuById(id);
-		
+
 		stu.setName("surenyufu");
-		
+
 		return stu;
 	}
 

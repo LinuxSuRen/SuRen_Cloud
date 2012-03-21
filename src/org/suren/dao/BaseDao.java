@@ -28,41 +28,41 @@ public abstract class BaseDao<T>
 {
 	@Autowired
 	private SessionFactory sessionFactory;
-	
+
 	private Class<?> entity;
-	
+
 	public abstract Class<?> setClass();
-	
+
 	public BaseDao()
 	{
 		entity = setClass();
 	}
-	
+
 	private Session getSession()
 	{
 		return sessionFactory.getCurrentSession();
 	}
-	
+
 	protected Criteria getCritera()
 	{
 		return getSession().createCriteria(entity);
 	}
-	
+
 	public Query getQuery(String hql)
 	{
 		return getSession().createQuery(hql);
 	}
-	
+
 	public void save(T entity)
 	{
 		getSession().save(entity);
 	}
-	
+
 	public void update(T entity)
 	{
 		getSession().update(entity);
 	}
-	
+
 	public void update(T entity, boolean save)
 	{
 		if(save)
@@ -74,78 +74,92 @@ public abstract class BaseDao<T>
 			update(entity);
 		}
 	}
-	
+
 	public void delete(T entity)
 	{
 		getSession().delete(entity);
 	}
-	
+
 	public void deleteById(Serializable id)
 	{
 		delete(findById(id));
 	}
-	
+
+	@SuppressWarnings("unchecked")
 	public T findById(Serializable id)
 	{
 		return (T) getSession().get(entity, id);
 	}
-	
+
+	@SuppressWarnings("unchecked")
 	public T findById(Serializable id, boolean proxy)
 	{
 		return proxy ? (T) getSession().load(entity, id) : findById(id);
 	}
-	
+
+	@SuppressWarnings("unchecked")
 	public List<T> findAll()
 	{
 		Criteria critera = getCritera();
-		
+
 		return critera.list();
 	}
-	
+
+	@SuppressWarnings("unchecked")
 	public void findByCriteria(Criteria criteria, Page<T> page)
 	{
 		Integer total = (Integer) criteria.setProjection(Projections.rowCount()).uniqueResult();
-		
+
 		criteria.setProjection(null);
-		
+
 		page.setTotal(total + 1);
-		
+
 		criteria.setFirstResult(page.getStart());
 		criteria.setMaxResults(page.getLimit());
-		
+
 		page.setResult(criteria.list());
 	}
-	
+
+	@SuppressWarnings("unchecked")
 	public List<T> findByCriteria(Criteria criteria)
 	{
 		return criteria.list();
 	}
-	
+
+	@SuppressWarnings("unchecked")
+	public T findByCriteriaUnique(Criteria criteria)
+	{
+		return (T) criteria.uniqueResult();
+	}
+
+	@SuppressWarnings("unchecked")
 	public void findBySQL(String hql, String totalHql, Page<T> page)
 	{
 		Query query = getSession().createQuery(hql);
-		
+
 		query.setFirstResult(page.getStart());
 		query.setMaxResults(page.getLimit());
-		
+
 		page.setResult(query.list());
-		
+
 		query = getSession().createQuery(totalHql);
-		
+
 		page.setTotal((Integer) query.uniqueResult());
 	}
-	
+
+	@SuppressWarnings("unchecked")
 	public List<T> findBySQL(String hql)
 	{
 		Query query = getSession().createQuery(hql);
-		
+
 		return query.list();
 	}
-	
+
+	@SuppressWarnings("unchecked")
 	public List<T> findBySQL(String hql, List<Object> params)
 	{
 		Query query = getSession().createQuery(hql);
-		
+
 		for(int i = 0; i < params.size(); i++)
 		{
 			query.setParameter(0, params.get(i));
@@ -153,5 +167,5 @@ public abstract class BaseDao<T>
 
 		return query.list();
 	}
-	
+
 }

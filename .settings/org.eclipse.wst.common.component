@@ -5,6 +5,7 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/test"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/config"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/login"/>
         <property name="context-root" value="SuRen_Cloud"/>
         <property name="java-output-path" value="/SuRen_Cloud/build/classes"/>
     </wb-module>
