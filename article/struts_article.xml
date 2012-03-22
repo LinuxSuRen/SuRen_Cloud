@@ -6,6 +6,12 @@
 	<package name="suren_article" extends="suren">
 		<action name="article" class="org.suren.action.ArticleAction">
 			<result name="success">/page/article/article.jsp</result>
+			<result name="download" type="stream">
+				<param name="contentType">attachmentContentType</param>
+				<param name="inputName">attachmentStream</param>
+				<param name="contentDisposition">attachment;filename="${attachmentFileName}"</param>
+				<param name="buffersize">2048</param>
+			</result>
 		</action>
 	</package>
 </struts>

@@ -4,6 +4,8 @@
  */
 package org.suren.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -18,8 +20,13 @@ import org.hibernate.annotations.GenericGenerator;
  */
 @Entity(name = "suren_student")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-public class Student extends AbstractEntity
+public class Student extends AbstractEntity implements Serializable
 {
+	/**
+	 *
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GenericGenerator(name = "uuid", strategy = "uuid")
 	@GeneratedValue(generator = "uuid")

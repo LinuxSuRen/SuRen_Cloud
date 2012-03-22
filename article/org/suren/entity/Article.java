@@ -3,7 +3,7 @@
  */
 package org.suren.entity;
 
-import java.io.File;
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -12,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -20,7 +21,11 @@ import org.hibernate.annotations.GenericGenerator;
  *
  */
 @Entity(name = "suren_article")
-public class Article extends AbstractEntity {
+public class Article extends AbstractEntity  implements Serializable{
+	/**
+	 *
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GenericGenerator(name = "uuid", strategy = "uuid")
 	@GeneratedValue(generator = "uuid")
@@ -31,8 +36,8 @@ public class Article extends AbstractEntity {
 	private User author;
 	@Lob
 	private String content;
-	@Lob
-	private File attachment;
+	@OneToOne
+	private Attachment attachment;
 	private String ref;
 	@Column(nullable = false)
 	private Date createDate;
@@ -94,13 +99,13 @@ public class Article extends AbstractEntity {
 	/**
 	 * @return the attachment
 	 */
-	public File getAttachment() {
+	public Attachment getAttachment() {
 		return attachment;
 	}
 	/**
 	 * @param attachment the attachment to set
 	 */
-	public void setAttachment(File attachment) {
+	public void setAttachment(Attachment attachment) {
 		this.attachment = attachment;
 	}
 	/**

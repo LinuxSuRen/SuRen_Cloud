@@ -5,15 +5,17 @@ package org.suren.action;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.sql.SQLException;
 import java.util.List;
 
+import org.hibernate.lob.BlobImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.suren.entity.Article;
+import org.suren.entity.Attachment;
 import org.suren.service.ArticleService;
+import org.suren.service.AttachmentService;
 
 /**
  * @author suren
@@ -28,70 +30,89 @@ public class ArticleAction extends BaseAction {
 
 	@Autowired
 	private ArticleService service;
+	@Autowired
+	private AttachmentService attachmentService;
 
 	private List<Article> articles;
 	private String title;
 	private String content;
 	private File attachment;
-
-	private String fileName;
+	private String attachmentFileName;
+	private String attachmentContentType;
+	private InputStream attachmentStream;
 
 	@Override
 	public String execute() {
 		articles = service.findByTitle("");
 
-		try {
-			for(Article article : articles)
-			{
-				File file = article.getAttachment();
-				
-				FileInputStream fis = new FileInputStream(file);
-				
-				FileOutputStream fos = new FileOutputStream(new File("d:/" + article.getTitle()));
-				
-				byte[] b = new byte[1024];
-				int len = -1;
-				while((len = fis.read(b)) != -1)
-				{
-					fos.write(b, 0, len);
-				}
-				
-				fos.close();
-				fis.close();
-			}
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
 		return SUCCESS;
 	}
 
-	public String add()
-	{
+	public String add() {
 		log.debug("add artitle : " + title);
+		log.debug("attachment:" + attachment.getName());
+		log.debug("attachmentFileName:" + attachmentFileName);
+		log.debug("attachmentContentType:" + attachmentContentType);
 
 		Article article = new Article();
 
 		article.setTitle(title);
 		article.setContent(content);
 		article.setAuthor(this.getCurrentUser());
-		article.setAttachment(attachment);
+
+		Attachment attach = new Attachment();
+		try {
+			BlobImpl content = new BlobImpl(new FileInputStream(attachment), 0);
+
+			attach.setContent(content);
+			attach.setName(attachmentFileName);
+			attach.setType(attachmentContentType);
+			attach.setUploadUser(this.getCurrentUser());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		attachmentService.save(attach);
+
+		article.setAttachment(attach);
 
 		service.saveArticle(article);
 
 		return execute();
 	}
-	
-	public String fetchAttachment()
-	{
-		return execute();
-	}
-	
-	public InputStream getInputStream() throws FileNotFoundException
-	{
-		return new FileInputStream(new File("D:/Work/Tom Clancy's H.A.W.X/HAWX.exe"));
+
+	public String fetchAttachment() {
+		String attID = this.getRequest().getParameter("attID");
+
+		log.debug("attID:" + attID);
+
+		Attachment attachment = new Attachment();
+		attachment.setId(attID);
+
+		List<Attachment> atts = attachmentService.find(attachment);
+
+		if(atts != null && atts.size() > 0)
+		{
+			try {
+				Attachment att = atts.get(0);
+
+				setAttachmentContentType(att.getType());
+				setAttachmentFileName(att.getName());
+
+				log.debug("attachmentFileName:" + attachmentFileName);
+				log.debug("attachmentContentType:" + attachmentContentType);
+
+				attachmentStream = att.getContent().getBinaryStream();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		else
+		{
+			//
+		}
+
+		return DOWNLOAD;
 	}
 
 	/**
@@ -102,32 +123,62 @@ public class ArticleAction extends BaseAction {
 	}
 
 	/**
-	 * @param title the title to set
+	 * @param title
+	 *            the title to set
 	 */
 	public void setTitle(String title) {
 		this.title = title;
 	}
 
 	/**
-	 * @param content the content to set
+	 * @param content
+	 *            the content to set
 	 */
 	public void setContent(String content) {
 		this.content = content;
 	}
 
 	/**
-	 * @param attachment the attachment to set
+	 * @param attachment
+	 *            the attachment to set
 	 */
 	public void setAttachment(File attachment) {
 		this.attachment = attachment;
 	}
 
 	/**
-	 * @return the fileName
+	 * @param attachmentFileName the attachmentFileName to set
 	 */
-	public String getFileName()
-	{
-		return fileName;
+	public void setAttachmentFileName(String attachmentFileName) {
+		this.attachmentFileName = attachmentFileName;
+	}
+
+	/**
+	 * @param attachmentContentType the attachmentContentType to set
+	 */
+	public void setAttachmentContentType(String attachmentContentType) {
+		this.attachmentContentType = attachmentContentType;
+	}
+
+	/**
+	 * @return the attachmentStream
+	 */
+	public InputStream getAttachmentStream() {
+		return attachmentStream;
+	}
+
+	/**
+	 * @return the attachmentFileName
+	 */
+	public String getAttachmentFileName() {
+		return attachmentFileName;
+	}
+
+	/**
+	 * @return the attachmentContentType
+	 */
+	public String getAttachmentContentType() {
+		return attachmentContentType;
 	}
 
 }

@@ -19,7 +19,8 @@
 </tr>
 <c:forEach items="${articles }" var="article" varStatus="i">
 <tr>
-	<td>${article.title }</td><td>${article.content }</td><td>${article.attachment }</td>
+	<td>${article.title }</td><td>${article.content }</td>
+	<td><a href="${contextPath }/article!fetchAttachment.action?attID=${article.attachment.id }">${article.attachment.name }</a></td>
 </tr>
 </c:forEach>
 </table>

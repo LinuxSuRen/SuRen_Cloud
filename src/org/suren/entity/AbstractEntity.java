@@ -7,6 +7,7 @@
  */
 package org.suren.entity;
 
+
 /**
  * @author Administrator
  *

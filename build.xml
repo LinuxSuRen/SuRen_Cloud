@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<project name="SuRen" basedir="." default="war">
+<project name="SuRen_Cloud" basedir="." default="war">
 	<description>
 		SuRen_Clound Ant File.
 	</description>
@@ -18,7 +18,6 @@
 
 	<target name="clean" depends="pre">
 		<delete file="${pack}/${name}"></delete>
-		<echo file="${date}"></echo>
 	</target>
 
 	<target name="pre">

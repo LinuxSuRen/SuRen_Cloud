@@ -4,6 +4,9 @@
 <struts>
 	<!-- 让Spring来管理action -->
 	<constant name="struts.objectFactory" value="spring" />
+	<!-- 设置 上传文件的临时文件目录 -->
+	<constant name="struts.multipart.saveDir" value="D:/uploadfile" />
+	<constant name="struts.multipart.maxSize" value="999999999" />
 
 	<include file="struts_test.xml"></include>
 	<include file="struts_login.xml"></include>
