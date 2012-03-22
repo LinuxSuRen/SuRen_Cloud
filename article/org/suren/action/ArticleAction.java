@@ -50,7 +50,6 @@ public class ArticleAction extends BaseAction {
 
 	public String add() {
 		log.debug("add artitle : " + title);
-		log.debug("attachment:" + attachment.getName());
 		log.debug("attachmentFileName:" + attachmentFileName);
 		log.debug("attachmentContentType:" + attachmentContentType);
 
@@ -60,21 +59,25 @@ public class ArticleAction extends BaseAction {
 		article.setContent(content);
 		article.setAuthor(this.getCurrentUser());
 
-		Attachment attach = new Attachment();
-		try {
-			BlobImpl content = new BlobImpl(new FileInputStream(attachment), 0);
+		if(attachment != null)
+		{
+			Attachment attach = new Attachment();
 
-			attach.setContent(content);
-			attach.setName(attachmentFileName);
-			attach.setType(attachmentContentType);
-			attach.setUploadUser(this.getCurrentUser());
-		} catch (IOException e) {
-			e.printStackTrace();
+			try {
+				BlobImpl content = new BlobImpl(new FileInputStream(attachment), 0);
+
+				attach.setContent(content);
+				attach.setName(attachmentFileName);
+				attach.setType(attachmentContentType);
+				attach.setUploadUser(this.getCurrentUser());
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+
+			attachmentService.save(attach);
+
+			article.setAttachment(attach);
 		}
-
-		attachmentService.save(attach);
-
-		article.setAttachment(attach);
 
 		service.saveArticle(article);
 

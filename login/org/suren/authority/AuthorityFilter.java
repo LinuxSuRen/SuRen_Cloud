@@ -62,8 +62,6 @@ public class AuthorityFilter implements SuRenFilter {
 
 		String uri = httpRequest.getRequestURI();
 
-		log.debug("contextPath:" + contextPath);
-		log.debug("URI:" + uri);
 
 		HttpSession session = httpRequest.getSession();
 		User sessionUser = (User) session.getAttribute(SuRenContext.SESSION);
@@ -75,12 +73,18 @@ public class AuthorityFilter implements SuRenFilter {
 			session.setAttribute(SuRenContext.SESSION, sessionUser);
 		}
 
-		if(sessionUser.getType() == AccountType.vistor && !isLogin(uri))
+		log.debug("contextPath:" + contextPath);
+		log.debug("URI:" + uri);
+		log.debug("AccountType:" + sessionUser.getType());
+
+		if(sessionUser.getType() == AccountType.vistor && isNotLogin(uri))
 		{
 			httpResponse.sendRedirect(contextPath + "/index.jsp" );
 		}
-
-		chain.doFilter(httpRequest, httpResponse);
+		else
+		{
+			chain.doFilter(httpRequest, httpResponse);
+		}
 	}
 
 	/*
@@ -97,9 +101,9 @@ public class AuthorityFilter implements SuRenFilter {
 		log.debug("AuthorityFilter is completed.");
 	}
 
-	private boolean isLogin(String uri)
+	private boolean isNotLogin(String uri)
 	{
-		return !(!uri.endsWith("index.jsp") && !uri.endsWith("login.jsp")
+		return (!uri.endsWith("index.jsp") && !uri.endsWith("login.jsp")
 				&& !uri.endsWith("login.action") && !uri.endsWith("sign.jsp")
 				&& !uri.endsWith("login!sign.action"));
 	}

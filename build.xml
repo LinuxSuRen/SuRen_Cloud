@@ -6,7 +6,7 @@
 
 	<property environment="env" />
 	<property name="suren" location="D:/Work/Application/SuRen_Cloud" />
-	<property name="pack" location="C:/users/suren/desktop" />
+	<property name="pack" location="D:\Work\Server\apache-tomcat-7.0.26\webapps" />
 	<property name="name" value="SuRen_Cloud.war"></property>
 
 	<target name="war" depends="clean">
