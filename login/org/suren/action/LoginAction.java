@@ -56,6 +56,7 @@ public class LoginAction extends BaseAction {
 
 		user.setAccount(account);
 		user.setPassword(password);
+		user.setName(account);
 
 		service.save(user);
 

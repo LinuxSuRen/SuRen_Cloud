@@ -8,8 +8,6 @@
 <title></title>
 </head>
 <body>
-<a href="test/test.jsp">go to test page.测试页面</a>
-<hr>
 <div>
 ${session_user.name }您好,
 <c:if test="${session_user.type =='vistor' }"><a href="page/login/login.jsp">Login</a></c:if>

@@ -32,7 +32,7 @@ public class User extends AbstractEntity implements Serializable{
 	@Column(nullable = false)
 	private AccountType type = AccountType.customer;
 	private Status status = Status.enable;
-	private String name = this.account;
+	private String name;
 	private Gender gender = Gender.male;
 	private String email;
 	/**

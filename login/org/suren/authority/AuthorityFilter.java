@@ -79,7 +79,7 @@ public class AuthorityFilter implements SuRenFilter {
 
 		if(sessionUser.getType() == AccountType.vistor && isNotLogin(uri))
 		{
-			httpResponse.sendRedirect(contextPath + "/index.jsp" );
+			httpResponse.sendRedirect(contextPath + "/page/login/login.jsp" );
 		}
 		else
 		{

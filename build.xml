@@ -5,24 +5,78 @@
 	</description>
 
 	<property environment="env" />
-	<property name="suren" location="D:/Work/Application/SuRen_Cloud" />
-	<property name="pack" location="D:\Work\Server\apache-tomcat-7.0.26\webapps" />
-	<property name="name" value="SuRen_Cloud.war"></property>
+	<property name="project" value="D:/Work/Application/SuRen_Cloud" />
+	<property name="WebContent" value="${project}/WebContent" />
+	<property name="config" value="${project}/config" />
+	<property name="lib" value="${WebContent}/WEB-INF/lib" />
+	<property name="build" value="${project}/build"/>
+	<property name="build.src" value="${build}/src"/>
+	<property name="build.classes" value="${build}/classes"/>
+	<property name="war" value="${build}/war" />
+	<property name="war.name" value="SuRen_Cloud" />
+	<path id="classpath">
+		<fileset dir="${lib}"></fileset>
+	</path>
+	<property name="tomcat" value="D:/Work/Server/apache-tomcat-7.0.26"/>
+	<property name="publish" value="${tomcat}/webapps" />
 
-	<target name="war" depends="clean">
-		<war destfile="${pack}/${name}" webxml="${suren}/WebContent/WEB-INF/web.xml">
-			<fileset dir="${suren}/WebContent" />
-			<lib dir="${suren}/WebContent/WEB-INF/lib" />
+	<target name="publish" depends="war">
+		<delete file="${publish}/${war.name}war" />
+		<copy todir="${publish}">
+			<fileset file="${war}/${war.name}.war" />
+		</copy>
+	</target>
+
+	<target name="war" depends="build">
+		<war destfile="${war}/${war.name}.war" webxml="${WebContent}/WEB-INF/web.xml">
+			<fileset dir="${WebContent}" />
+			<classes dir="${build.src}"/>
+			<lib dir="${lib}" />
 		</war>
 	</target>
 
-	<target name="clean" depends="pre">
-		<delete file="${pack}/${name}"></delete>
+	<target name="prepare" depends="clean">
+
+		<mkdir dir="${build.src}"/>
+		<mkdir dir="${build.classes}"/>
+		<mkdir dir="${war}"/>
+
+		<copy todir="${build.src}">
+			<fileset dir="${project}/src">
+			</fileset>
+			<fileset dir="${project}/login">
+			</fileset>
+			<fileset dir="${project}/article">
+			</fileset>
+			<fileset dir="${project}/test">
+			</fileset>
+		</copy>
 	</target>
 
-	<target name="pre">
-		<exec executable="cmd.exe" os="Windows 7">
-			<arg line="/c time /t" />
-		</exec>
+	<target name="build" depends="prepare">
+		<javac srcdir="${build.src}" destdir="${build.classes}">
+			<classpath refid="classpath" />
+		</javac>
+
+		<copy todir="${build.classes}">
+			<fileset dir="${build.src}">
+				<include name="**/*.xml"/>
+			</fileset>
+			<fileset dir="${config}">
+				<include name="**/*.xml"/>
+				<include name="**/*.properties"/>
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="clean">
+		<delete dir="${build.src}" />
+		<delete dir="${build.classes}" />
+		<delete dir="${war}" />
+	</target>
+
+	<target name="cleanPublish">
+		<delete file="${publish}/${war.name}.war" />
+		<delete dir="${publish}/${war.name}" />
 	</target>
 </project>

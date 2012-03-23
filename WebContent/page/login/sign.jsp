@@ -9,7 +9,7 @@
 <body>
 
 <form action="${contextPath }/login!sign.action" method="post">
-<table>
+<table align="center">
 	<tr>
 		<td>Account:</td>
 		<td><input name="account" value="${account }" /></td>

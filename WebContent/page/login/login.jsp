@@ -8,7 +8,7 @@
 </head>
 <body>
 <form action="${contextPath }/login.action" method="post">
-<table>
+<table align="center">
 	<tr>
 		<td>Account:</td>
 		<td><input name="account" value="${account }" /></td>

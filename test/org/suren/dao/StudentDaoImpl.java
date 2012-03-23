@@ -29,7 +29,7 @@ public class StudentDaoImpl extends BaseDao<Student> implements StudentDao
 	public void findByPage(Student student, Page<Student> page)
 	{
 		Criteria criteria = this.getCritera();
-		
+
 		this.findByCriteria(criteria, page);
 	}
 
@@ -46,16 +46,17 @@ public class StudentDaoImpl extends BaseDao<Student> implements StudentDao
 	/* (non-Javadoc)
 	 * @see com.nercis.cbtes.dao.StudentDao#findByAge(int)
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Student> findByAge(int age)
 	{
 		Criteria criteria = this.getCritera();
-		
+
 		criteria.add(Restrictions.eq("age", age));
-		
+
 		criteria.setCacheable(true);
 		criteria.setCacheMode(CacheMode.GET);
-		
+
 		return criteria.list();
 	}
 
@@ -76,7 +77,7 @@ public class StudentDaoImpl extends BaseDao<Student> implements StudentDao
 	public Student saveStudent(Student stu)
 	{
 		this.save(stu);
-		
+
 		return stu;
 	}
 
@@ -87,7 +88,7 @@ public class StudentDaoImpl extends BaseDao<Student> implements StudentDao
 	public Student updateStudent(Student stu)
 	{
 		this.update(stu, false);
-		
+
 		return stu;
 	}
 
