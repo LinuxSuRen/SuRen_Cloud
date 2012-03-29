@@ -16,19 +16,39 @@ import org.suren.entity.User;
 public class UserServiceImpl implements UserService {
 
 	@Autowired
-	private UserDao userDao;
-
-	/* (non-Javadoc)
-	 * @see org.suren.servcie.UserService#find(org.suren.entity.User)
-	 */
-	@Override
-	public User find(User user) {
-		return userDao.findUser(user);
-	}
+	private UserDao dao;
 
 	@Override
 	public void save(User user) {
-		userDao.saveUser(user);
+		dao.saveUser(user);
+	}
+
+	@Override
+	public User findByAccount(String account) {
+		if(account == null)
+		{
+			return null;
+		}
+
+		User user = new User();
+
+		user.setAccount(account);
+
+		return dao.findUser(user);
+	}
+
+	@Override
+	public User findByID(String id) {
+		if(id == null)
+		{
+			return null;
+		}
+
+		User user = new User();
+
+		user.setId(id);
+
+		return dao.findUser(user);
 	}
 
 }

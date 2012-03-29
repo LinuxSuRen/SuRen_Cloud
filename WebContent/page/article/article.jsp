@@ -8,7 +8,7 @@
 <title>Article List.</title>
 </head>
 <body>
-
+<jsp:include page="../common/head.jsp" flush="true" />
 <div>
 <a href="${contextPath }/page/article/addArticle.jsp">add articles</a>
 </div>
@@ -28,5 +28,7 @@
 <div>
 <a href="${contextPath }/page/article/addArticle.jsp">add articles</a>
 </div>
+
+<jsp:include page="../common/foot.html" flush="true" />
 </body>
 </html>

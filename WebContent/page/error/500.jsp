@@ -4,13 +4,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>SuRen</title>
+<title>Insert title here</title>
 </head>
 <body>
-<jsp:include page="page/common/head.jsp" flush="true" />
-
-<a href="${contextPath }/article.action">Article</a>
-
-<jsp:include page="page/common/foot.html" flush="true" />
+<jsp:include page="../common/head.jsp" flush="true" />
+服务站正维护
+<jsp:include page="../common/foot.html" flush="true" />
 </body>
 </html>

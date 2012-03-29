@@ -11,6 +11,5 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="src" path="test"/>
 	<classpathentry kind="src" path="config"/>
-	<classpathentry kind="lib" path="E:/TDDOWNLOAD/jpcap.jar"/>
 	<classpathentry kind="output" path="WebContent/WEB-INF/classes"/>
 </classpath>

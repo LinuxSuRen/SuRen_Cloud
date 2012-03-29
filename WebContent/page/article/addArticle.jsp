@@ -8,6 +8,7 @@
 </head>
 <body>
 
+<jsp:include page="../common/head.jsp" flush="true" />
 <form action="${contextPath }/article!add.action" method="post" enctype="multipart/form-data">
 <table>
 	<tr>
@@ -29,5 +30,6 @@
 </table>
 </form>
 
+<jsp:include page="../common/foot.html" flush="true" />
 </body>
 </html>

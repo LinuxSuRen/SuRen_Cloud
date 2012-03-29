@@ -28,6 +28,10 @@ public class UserDaoImpl extends BaseDao<User> implements UserDao {
 		{
 			criteria.add(Restrictions.eq("account", user.getAccount()));
 		}
+		else if(user.getId() != null)
+		{
+			criteria.add(Restrictions.eq("id", user.getId()));
+		}
 
 		return this.findByCriteriaUnique(criteria);
 	}
@@ -49,6 +53,18 @@ public class UserDaoImpl extends BaseDao<User> implements UserDao {
 	@Override
 	public void saveUser(User user) {
 		this.save(user);
+	}
+
+	@Override
+	public List<User> findUsers(User user) {
+		Criteria criteria = this.getCritera();
+
+		if(user.getAccount() != null)
+		{
+			criteria.add(Restrictions.eq("account", user.getAccount()));
+		}
+
+		return this.findByCriteria(criteria);
 	}
 
 }

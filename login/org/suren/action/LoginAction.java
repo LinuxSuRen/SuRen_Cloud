@@ -8,6 +8,7 @@ import org.suren.core.SuRenContext;
 import org.suren.entity.AccountType;
 import org.suren.entity.User;
 import org.suren.servcie.UserService;
+import org.suren.util.Encryption;
 
 
 /**
@@ -16,20 +17,53 @@ import org.suren.servcie.UserService;
  */
 public class LoginAction extends BaseAction {
 
+	private static final long serialVersionUID = 1L;
+
 	private String account = "";
 	private String password;
+	private String error;
 
 	@Autowired
 	private UserService service;
 
 	/**
-	 *
+	 * 注册功能
+	 * @return
 	 */
-	private static final long serialVersionUID = 1L;
+	public String sign()
+	{
+		User user = new User();
 
+		user.setAccount(account);
+		user.setPassword(Encryption.encrypt(password));
+		user.setName(account);
+
+		service.save(user);
+
+		return "sign";
+	}
+
+	/**
+	 * 判断某个帐号是否已经存在
+	 * @return
+	 */
+	public String existed()
+	{
+		log.debug("account:" + account);
+
+		User user = service.findByAccount(account);
+
+		account = user == null ? null : account;
+
+		return JSON;
+	}
+
+	/* 登录功能
+	 * @see org.suren.action.BaseAction#execute()
+	 */
 	public String execute()
 	{
-		User user = service.find(new User(account));
+		User user = service.findByAccount(account);
 
 		if(isLegal(user))
 		{
@@ -41,6 +75,9 @@ public class LoginAction extends BaseAction {
 		return ERROR;
 	}
 
+	/**注销功能
+	 * @return
+	 */
 	public String logout()
 	{
 		User user = new User(AccountType.vistor, "Vistor");
@@ -50,23 +87,12 @@ public class LoginAction extends BaseAction {
 		return SUCCESS;
 	}
 
-	public String sign()
-	{
-		User user = new User();
-
-		user.setAccount(account);
-		user.setPassword(password);
-		user.setName(account);
-
-		service.save(user);
-
-		return "sign";
-	}
-
 	private boolean isLegal(User user)
 	{
-		if(user == null)
+		if(user == null || !user.getPassword().equals(Encryption.encrypt(password)))
 		{
+			error = "帐号或密码有误。";
+
 			return false;
 		}
 
@@ -92,6 +118,13 @@ public class LoginAction extends BaseAction {
 	 */
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	/**
+	 * @return the error
+	 */
+	public String getError() {
+		return error;
 	}
 
 }

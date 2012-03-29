@@ -35,7 +35,7 @@ public class ARP {
 				}
 			}
 		}
-
+		device = devices[0];
 		if (device == null)
 		{
 			throw new IllegalArgumentException(ip + " is not a local address");
@@ -101,7 +101,7 @@ public class ARP {
 
 	public static void main(String[] args) throws Exception {
 		args = new String[1];
-		args[0] = "10.0.32.62";
+		args[0] = "10.0.31.235";
 
 		if (args.length < 1) {
 			System.out.println("Usage: java ARP <ip address>");

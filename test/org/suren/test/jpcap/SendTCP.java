@@ -26,28 +26,28 @@ public class SendTCP {
 		int index = Integer.parseInt(args[0]);
 		JpcapSender sender = JpcapSender.openDevice(devices[index]);
 
-		TCPPacket p = new TCPPacket(12, 34, 56, 78, false, false, false, false,
+		TCPPacket p = new TCPPacket(8080, 22, 56, 78, false, false, false, false,
 				true, true, true, true, 10, 10);
 
 		p.setIPv4Parameter(0, false, false, false, 0, false, false, false, 0,
 				1010101, 100, IPPacket.IPPROTO_TCP,
-				InetAddress.getByName("www.microsoft.com"),
-				InetAddress.getByName("www.google.com"));
+				InetAddress.getByName("10.0.32.22"),
+				InetAddress.getByName("10.0.31.10"));
 
 		p.data = ("data").getBytes();
 
 		EthernetPacket ether = new EthernetPacket();
 
 		ether.frametype = EthernetPacket.ETHERTYPE_IP;
-		ether.src_mac = new byte[] { (byte) 0, (byte) 1, (byte) 2, (byte) 3,
-				(byte) 4, (byte) 5 };
+		ether.src_mac = new byte[] { Integer.valueOf("22", 16).byteValue(), Integer.valueOf("22", 16).byteValue(), Integer.valueOf("5e", 16).byteValue(), Integer.valueOf("1c", 16).byteValue(),
+				Integer.valueOf("3d", 16).byteValue(), Integer.valueOf("73", 16).byteValue() };
 
-		ether.dst_mac = new byte[] { (byte) 0, (byte) 6, (byte) 7, (byte) 8,
-				(byte) 9, (byte) 10 };
+		ether.dst_mac =new byte[] { Integer.valueOf("c4", 16).byteValue(), Integer.valueOf("ca", 16).byteValue(), Integer.valueOf("d9", 16).byteValue(), Integer.valueOf("df", 16).byteValue(),
+				Integer.valueOf("5f", 16).byteValue(), Integer.valueOf("70", 16).byteValue() };
 
 		p.datalink = ether;
 
-		for (int i = 0; i < 10000000; i++)
+		for (int i = 0; i < 3; i++)
 		{
 			sender.sendPacket(p);
 		}
