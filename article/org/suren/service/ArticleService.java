@@ -16,4 +16,6 @@ public interface ArticleService {
 	void saveArticle(Article entity);
 
 	List<Article> findByTitle(String title);
+
+	Article findByID(String id);
 }

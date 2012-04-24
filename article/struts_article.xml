@@ -12,6 +12,9 @@
 				<param name="contentDisposition">attachment;filename="${attachmentFileName}"</param>
 				<param name="buffersize">2048</param>
 			</result>
+			<result name="image" type="stream" >
+				<param name="inputName">attachmentStream</param>
+			</result>
 		</action>
 	</package>
 </struts>

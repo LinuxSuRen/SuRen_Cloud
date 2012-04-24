@@ -44,4 +44,15 @@ public class ArticleServiceImpl implements ArticleService {
 		return dao.findArticle(article);
 	}
 
+	@Override
+	public Article findByID(String id) {
+		Article article = new Article();
+
+		article.setId(id);
+
+		List<Article> articles = dao.findArticle(article);
+
+		return articles != null && articles.size() > 0 ? articles.get(0) : null;
+	}
+
 }

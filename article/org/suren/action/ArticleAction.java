@@ -7,6 +7,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.sql.Blob;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -116,6 +117,34 @@ public class ArticleAction extends BaseAction {
 		}
 
 		return DOWNLOAD;
+	}
+
+	public String image() throws SQLException
+	{
+		String id = this.getRequest().getParameter("id");
+
+		log.debug("id:" + id);
+
+		Article article = service.findByID(id);
+
+		if(article != null)
+		{
+			Attachment attchment = article.getAttachment();
+
+			if(attchment != null)
+			{
+				Blob content = attchment.getContent();
+
+				if(content != null)
+				{
+					attachmentStream = content.getBinaryStream();
+
+					log.debug("found image:" + attachmentStream);
+				}
+			}
+		}
+
+		return "image";
 	}
 
 	/**

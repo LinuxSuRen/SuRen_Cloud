@@ -71,14 +71,14 @@ public class Jpcap  {
 			{
 				IPPacket ip = (IPPacket) packet;
 
+				if(ip.toString().indexOf("10.0.31.62") != -1)
+				{
+					System.out.println(ip);
+				}
+
 				if(ip instanceof TCPPacket)
 				{
 					TCPPacket tcp = (TCPPacket) ip;
-
-					if(tcp.toString().indexOf("10.0.31.62") != -1)
-					{
-						System.out.println(tcp + "&&&&");
-					}
 
 //					if(tcp.dst_port == 3456)
 //					{

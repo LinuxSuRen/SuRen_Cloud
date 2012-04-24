@@ -10,6 +10,7 @@
 <jsp:include page="page/common/head.jsp" flush="true" />
 
 <a href="${contextPath }/article.action">Article</a>
+<a href="${contextPath }/page/management/hostmanagement.jsp">Management</a>
 
 <jsp:include page="page/common/foot.html" flush="true" />
 </body>
