@@ -67,4 +67,9 @@ public class UserDaoImpl extends BaseDao<User> implements UserDao {
 		return this.findByCriteria(criteria);
 	}
 
+	@Override
+	public void updateUser(User user) {
+		this.update(user);
+	}
+
 }

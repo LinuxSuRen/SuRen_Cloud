@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.suren.dao.UserDao;
 import org.suren.entity.User;
+import org.suren.util.string.StringUtil;
 
 /**
  * @author suren
@@ -49,6 +50,31 @@ public class UserServiceImpl implements UserService {
 		user.setId(id);
 
 		return dao.findUser(user);
+	}
+
+	@Override
+	public void update(User user) {
+		if(user == null)
+		{
+			return;
+		}
+
+		String id = user.getId();
+
+		if(StringUtil.isNotEmpty(id))
+		{
+			User u = findByID(id);
+
+			if(u == null)
+			{
+				return;
+			}
+
+			u.setName(user.getName());
+			u.setEmail(user.getEmail());
+
+			dao.updateUser(u);
+		}
 	}
 
 }

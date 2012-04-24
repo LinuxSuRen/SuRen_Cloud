@@ -13,6 +13,8 @@ public interface UserService {
 
 	void save(User user);
 
+	void update(User user);
+
 	/**
 	 * 根据account查找用户，找到返回该用户，找不到返回null
 	 * @param account

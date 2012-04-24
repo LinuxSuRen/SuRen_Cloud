@@ -24,5 +24,10 @@
 			<result name="sign">/page/login/login.jsp</result>
 			<result name="json" type="json" />
 		</action>
+
+		<action name="user" class="org.suren.action.UserAction">
+			<result name="edit">/page/user/useredit.jsp</result>
+			<result name="success">/page/user/useredit.jsp</result>
+		</action>
 	</package>
 </struts>

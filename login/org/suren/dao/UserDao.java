@@ -15,6 +15,8 @@ public interface UserDao {
 
 	void saveUser(User user);
 
+	void updateUser(User user);
+
 	/**
 	 * 根据不重复属性查找唯一用户，
 	 * 找到返回该对象，否则返回null
