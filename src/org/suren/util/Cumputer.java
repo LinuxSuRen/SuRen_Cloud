@@ -33,6 +33,7 @@ public class Cumputer {
 		}
 	}
 
+	@SuppressWarnings("unused")
 	private static void print(Object obj)
 	{
 		System.out.print(obj);

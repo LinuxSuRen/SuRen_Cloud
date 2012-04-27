@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<jnlp spec="1.0+" codebase="http://localhost:8080/SuRen_Cloud">
+    <information>
+        <title>SuRen Tool</title>
+        <vendor>SuRen</vendor>
+        <icon href="head.jpg" />
+        <icon kind="splash" href="head.jpg" />
+    </information>
+    <security>
+		<all-permissions/>
+    </security>
+    <resources>
+        <j2se version="1.5+"/>
+        <jar href="resources/suren.jar"/>
+    </resources>
+    <application-desc>
+		<argument>hello suren</argument>
+    </application-desc>
+</jnlp>

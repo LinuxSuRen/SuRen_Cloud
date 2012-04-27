@@ -1,0 +1,300 @@
+<?xml version="1.0"?>
+<xml_api_reply version="1">
+	<cities>
+		<city>
+			<name data="Baoding"/>
+			<latitude_e6 data="38849998"/>
+			<longitude_e6 data="115569999"/>
+		</city>
+		<city default="true" >
+			<name data="Beijing"/>
+			<latitude_e6 data="39930000"/>
+			<longitude_e6 data="116279998"/>
+		</city>
+		<city>
+			<name data="Changchun"/>
+			<latitude_e6 data="43900001"/>
+			<longitude_e6 data="125220001"/>
+		</city>
+		<city>
+			<name data="Changsha"/>
+			<latitude_e6 data="28229999"/>
+			<longitude_e6 data="112870002"/>
+		</city>
+		<city>
+			<name data="Chengdu"/>
+			<latitude_e6 data="30670000"/>
+			<longitude_e6 data="104019996"/>
+		</city>
+		<city>
+			<name data="Chongqing"/>
+			<latitude_e6 data="29520000"/>
+			<longitude_e6 data="106480003"/>
+		</city>
+		<city>
+			<name data="Dalian"/>
+			<latitude_e6 data="38900001"/>
+			<longitude_e6 data="121629997"/>
+		</city>
+		<city>
+			<name data="Fuyang"/>
+			<latitude_e6 data="32930000"/>
+			<longitude_e6 data="115830001"/>
+		</city>
+		<city>
+			<name data="Fuzhou"/>
+			<latitude_e6 data="26079999"/>
+			<longitude_e6 data="119279998"/>
+		</city>
+		<city>
+			<name data="Ganzhou"/>
+			<latitude_e6 data="25850000"/>
+			<longitude_e6 data="114949997"/>
+		</city>
+		<city>
+			<name data="Guangzhou"/>
+			<latitude_e6 data="23129999"/>
+			<longitude_e6 data="113319999"/>
+		</city>
+		<city>
+			<name data="Guiyang"/>
+			<latitude_e6 data="26579999"/>
+			<longitude_e6 data="106720001"/>
+		</city>
+		<city>
+			<name data="Haikou"/>
+			<latitude_e6 data="20030000"/>
+			<longitude_e6 data="110349998"/>
+		</city>
+		<city>
+			<name data="Handan"/>
+			<latitude_e6 data="38029998"/>
+			<longitude_e6 data="114419998"/>
+		</city>
+		<city>
+			<name data="Hangzhou"/>
+			<latitude_e6 data="30229999"/>
+			<longitude_e6 data="120169998"/>
+		</city>
+		<city>
+			<name data="Harbin"/>
+			<latitude_e6 data="45750000"/>
+			<longitude_e6 data="126769996"/>
+		</city>
+		<city>
+			<name data="Hefei"/>
+			<latitude_e6 data="31870000"/>
+			<longitude_e6 data="117230003"/>
+		</city>
+		<city>
+			<name data="Hengyang"/>
+			<latitude_e6 data="36119998"/>
+			<longitude_e6 data="114370002"/>
+		</city>
+		<city>
+			<name data="Heze"/>
+			<latitude_e6 data="36119998"/>
+			<longitude_e6 data="114370002"/>
+		</city>
+		<city>
+			<name data="Hohhot"/>
+			<latitude_e6 data="40819999"/>
+			<longitude_e6 data="111680000"/>
+		</city>
+		<city>
+			<name data="Huanggang"/>
+			<latitude_e6 data="30620000"/>
+			<longitude_e6 data="114129997"/>
+		</city>
+		<city>
+			<name data="Jinan"/>
+			<latitude_e6 data="36680000"/>
+			<longitude_e6 data="116980003"/>
+		</city>
+		<city>
+			<name data="Jining"/>
+			<latitude_e6 data="36680000"/>
+			<longitude_e6 data="116980003"/>
+		</city>
+		<city>
+			<name data="Kunming"/>
+			<latitude_e6 data="25020000"/>
+			<longitude_e6 data="102680000"/>
+		</city>
+		<city>
+			<name data="Lanzhou"/>
+			<latitude_e6 data="36040000"/>
+			<longitude_e6 data="103879997"/>
+		</city>
+		<city>
+			<name data="Lhasa"/>
+			<latitude_e6 data="29657589"/>
+			<longitude_e6 data="91132050"/>
+		</city>
+		<city>
+			<name data="Nanchang"/>
+			<latitude_e6 data="28600000"/>
+			<longitude_e6 data="115919998"/>
+		</city>
+		<city>
+			<name data="Nanchong"/>
+			<latitude_e6 data="30799999"/>
+			<longitude_e6 data="106080001"/>
+		</city>
+		<city>
+			<name data="Nanjing"/>
+			<latitude_e6 data="32000000"/>
+			<longitude_e6 data="118800003"/>
+		</city>
+		<city>
+			<name data="Nanning"/>
+			<latitude_e6 data="22819999"/>
+			<longitude_e6 data="108349998"/>
+		</city>
+		<city>
+			<name data="Nantong"/>
+			<latitude_e6 data="32000000"/>
+			<longitude_e6 data="118800003"/>
+		</city>
+		<city>
+			<name data="Nanyang"/>
+			<latitude_e6 data="33029998"/>
+			<longitude_e6 data="112580001"/>
+		</city>
+		<city>
+			<name data="Ningbo"/>
+			<latitude_e6 data="30229999"/>
+			<longitude_e6 data="120169998"/>
+		</city>
+		<city>
+			<name data="Qingdao"/>
+			<latitude_e6 data="36069999"/>
+			<longitude_e6 data="120330001"/>
+		</city>
+		<city>
+			<name data="Shanghai"/>
+			<latitude_e6 data="31399999"/>
+			<longitude_e6 data="121470001"/>
+		</city>
+		<city>
+			<name data="Shangqiu"/>
+			<latitude_e6 data="36119998"/>
+			<longitude_e6 data="114370002"/>
+		</city>
+		<city>
+			<name data="Shantou"/>
+			<latitude_e6 data="23399999"/>
+			<longitude_e6 data="116680000"/>
+		</city>
+		<city>
+			<name data="Shaoyang"/>
+			<latitude_e6 data="27229999"/>
+			<longitude_e6 data="111470001"/>
+		</city>
+		<city>
+			<name data="Shenyang"/>
+			<latitude_e6 data="41770000"/>
+			<longitude_e6 data="123430000"/>
+		</city>
+		<city>
+			<name data="Shenzhen"/>
+			<latitude_e6 data="22549999"/>
+			<longitude_e6 data="114099998"/>
+		</city>
+		<city>
+			<name data="Shijiazhuang"/>
+			<latitude_e6 data="38029998"/>
+			<longitude_e6 data="114419998"/>
+		</city>
+		<city>
+			<name data="Taiyuan"/>
+			<latitude_e6 data="37779998"/>
+			<longitude_e6 data="112550003"/>
+		</city>
+		<city>
+			<name data="Tangshan"/>
+			<latitude_e6 data="39669998"/>
+			<longitude_e6 data="118150001"/>
+		</city>
+		<city>
+			<name data="Tianjin"/>
+			<latitude_e6 data="39099998"/>
+			<longitude_e6 data="117169998"/>
+		</city>
+		<city>
+			<name data="Urumqi"/>
+			<latitude_e6 data="43779998"/>
+			<longitude_e6 data="87620002"/>
+		</city>
+		<city>
+			<name data="Weifang"/>
+			<latitude_e6 data="36700000"/>
+			<longitude_e6 data="119080001"/>
+		</city>
+		<city>
+			<name data="Wenzhou"/>
+			<latitude_e6 data="30229999"/>
+			<longitude_e6 data="120169998"/>
+		</city>
+		<city>
+			<name data="Wuhan"/>
+			<latitude_e6 data="30620000"/>
+			<longitude_e6 data="114129997"/>
+		</city>
+		<city>
+			<name data="Xi An"/>
+			<latitude_e6 data="34299999"/>
+			<longitude_e6 data="108930000"/>
+		</city>
+		<city>
+			<name data="Xiamen"/>
+			<latitude_e6 data="24479999"/>
+			<longitude_e6 data="118080001"/>
+		</city>
+		<city>
+			<name data="Xining"/>
+			<latitude_e6 data="36619998"/>
+			<longitude_e6 data="101769996"/>
+		</city>
+		<city>
+			<name data="Xinyang"/>
+			<latitude_e6 data="32130001"/>
+			<longitude_e6 data="114050003"/>
+		</city>
+		<city>
+			<name data="Xuzhou"/>
+			<latitude_e6 data="34279998"/>
+			<longitude_e6 data="117150001"/>
+		</city>
+		<city>
+			<name data="Yancheng"/>
+			<latitude_e6 data="34279998"/>
+			<longitude_e6 data="117150001"/>
+		</city>
+		<city>
+			<name data="Yibin"/>
+			<latitude_e6 data="28799999"/>
+			<longitude_e6 data="104599998"/>
+		</city>
+		<city>
+			<name data="Yinchuan"/>
+			<latitude_e6 data="38479999"/>
+			<longitude_e6 data="106220001"/>
+		</city>
+		<city>
+			<name data="Zhengzhou"/>
+			<latitude_e6 data="34720001"/>
+			<longitude_e6 data="113650001"/>
+		</city>
+		<city>
+			<name data="Zhoukou"/>
+			<latitude_e6 data="33000000"/>
+			<longitude_e6 data="114019996"/>
+		</city>
+		<city>
+			<name data="Zhumadian"/>
+			<latitude_e6 data="33000000"/>
+			<longitude_e6 data="114019996"/>
+		</city>
+	</cities>
+</xml_api_reply>
