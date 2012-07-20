@@ -14,9 +14,12 @@
 	File[] roots = File.listRoots();
 	for(File root : roots)
 	{
-		out.print(root.getPath());
-		out.print(" TotalSpace: " + root.getTotalSpace());
-		out.print(" UsableSpace: " + root.getUsableSpace());
+		long total = root.getTotalSpace();
+		long used = root.getUsableSpace();
+
+		out.print(root.getPath() + "\t");
+		out.print("Total:\t" + total + "\t");
+		out.print("Used:\t" + used + "\t");
 
 		out.print("<br />");
 %>
@@ -24,6 +27,6 @@
 	}
 %>
 <div>说明：获取主机的磁盘分区信息（例如在windows下要知道C、D等分区信息）。</div>
-<jsp:include page="../common/foot.html" flush="true" />
+<jsp:include page="../common/foot.jsp" flush="true" />
 </body>
 </html>

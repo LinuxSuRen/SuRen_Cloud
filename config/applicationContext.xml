@@ -13,6 +13,8 @@
 	http://www.springframework.org/schema/context
 	http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
+	<import resource="spring_weather.xml"/>
+
 	<bean id="propertyConfigurer"
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="location">
@@ -23,8 +25,7 @@
 	<!-- -->
 	<context:component-scan base-package='org.suren' />
 
-	<bean
-		class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" />
+	<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" />
 
 	<bean id='dataSource' class='org.apache.commons.dbcp.BasicDataSource'
 		destroy-method="close">
@@ -57,7 +58,6 @@
 			</props>
 		</property>
 		<property name="packagesToScan" value="org.suren.*" />
-
 	</bean>
 
 	<bean id="transactionManager"

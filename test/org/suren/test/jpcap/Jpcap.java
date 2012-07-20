@@ -71,7 +71,7 @@ public class Jpcap  {
 			{
 				IPPacket ip = (IPPacket) packet;
 
-				if(ip.toString().indexOf("10.0.31.62") != -1)
+				if(ip.toString().indexOf("10.0.21.43") != -1)
 				{
 					System.out.println(ip);
 				}

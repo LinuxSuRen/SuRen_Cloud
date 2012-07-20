@@ -3,7 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>SuRen</title>
 </head>
 <body>
@@ -11,7 +11,10 @@
 
 <a href="${contextPath }/article.action">Article</a>
 <a href="${contextPath }/page/management/hostmanagement.jsp">Management</a>
+<a href="${contextPath }/user!edit.action?id=${session_user.id }">Edit User</a>
+<a href="${contextPath }/weather.action">City List.</a>
+<a href="${contextPath }/resources/suren.jnlp">SuRen_Mail</a>
 
-<jsp:include page="page/common/foot.html" flush="true" />
+<%@include file="page/common/foot.jsp" %>
 </body>
 </html>

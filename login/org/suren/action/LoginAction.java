@@ -6,8 +6,10 @@ package org.suren.action;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.suren.core.SuRenContext;
 import org.suren.entity.AccountType;
+import org.suren.entity.Status;
 import org.suren.entity.User;
 import org.suren.servcie.UserService;
+import org.suren.task.WeatherTask;
 import org.suren.util.Encryption;
 
 
@@ -69,8 +71,12 @@ public class LoginAction extends BaseAction {
 		{
 			this.getRequest().getSession().setAttribute(SuRenContext.SESSION, user);
 
+			log.debug("login success");
+
 			return SUCCESS;
 		}
+
+		log.debug("login error");
 
 		return ERROR;
 	}
@@ -92,6 +98,13 @@ public class LoginAction extends BaseAction {
 		if(user == null || !user.getPassword().equals(Encryption.encrypt(password)))
 		{
 			error = "帐号或密码有误。";
+
+			return false;
+		}
+
+		if(Status.enable != user.getStatus())
+		{
+			error = "用户尚未启用。";
 
 			return false;
 		}

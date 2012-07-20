@@ -103,9 +103,15 @@ public class AuthorityFilter implements SuRenFilter {
 
 	private boolean isNotLogin(String uri)
 	{
-		return (!uri.endsWith("index.jsp") && !uri.endsWith("login.jsp")
-				&& !uri.endsWith("login.action") && !uri.endsWith("sign.jsp")
-				&& !uri.endsWith("login!sign.action"));
+		return (!uri.endsWith(".js") &&
+				!uri.endsWith("index.jsp")
+				&& !uri.endsWith("login.jsp")
+				&& !uri.endsWith("login.action")
+				&& !uri.endsWith("sign.jsp")
+				&& !uri.endsWith("login!sign.action")
+				&& !uri.endsWith(".jar")
+				&& !uri.endsWith(".jpg")
+				&& !uri.endsWith(".jnlp"));
 	}
 
 }

@@ -23,6 +23,12 @@
 		</td>
 	</tr>
 	<tr>
+		<td>Password:</td>
+		<td>
+			<input type="password" name="user.password" value="${user.gender }"/>
+		</td>
+	</tr>
+	<tr>
 		<td>E-mail:</td><td><input name="user.email" value="${user.email }" /></td>
 	</tr>
 	<tr>
@@ -31,6 +37,6 @@
 </table>
 </form>
 </div>
-<jsp:include page="../common/foot.html" flush="true" />
+<jsp:include page="../common/foot.jsp" flush="true" />
 </body>
 </html>

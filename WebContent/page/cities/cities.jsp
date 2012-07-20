@@ -23,6 +23,6 @@
 	</c:forEach>
 </table>
 </div>
-<jsp:include page="../common/foot.html" flush="true" />
+<jsp:include page="../common/foot.jsp" flush="true" />
 </body>
 </html>

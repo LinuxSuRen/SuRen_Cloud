@@ -9,6 +9,6 @@
 <body>
 <jsp:include page="../common/head.jsp" flush="true" />
 服务站正维护
-<jsp:include page="../common/foot.html" flush="true" />
+<jsp:include page="../common/foot.jsp" flush="true" />
 </body>
 </html>

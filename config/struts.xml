@@ -11,6 +11,7 @@
 	<include file="struts_test.xml"></include>
 	<include file="struts_login.xml"></include>
 	<include file="struts_article.xml"></include>
+	<include file="struts_weather.xml"></include>
 
 	<package name="suren" namespace="/" extends="json-default">
 	</package>
