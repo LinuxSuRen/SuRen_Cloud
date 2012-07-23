@@ -15,6 +15,7 @@
 			<result name="image" type="stream" >
 				<param name="inputName">attachmentStream</param>
 			</result>
+			<result name="add" type="redirect">/article.action</result>
 		</action>
 	</package>
 </struts>

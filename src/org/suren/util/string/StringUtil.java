@@ -21,4 +21,19 @@ public class StringUtil
 	{
 		return str != null && !"".equals(str);
 	}
+
+	public static boolean equals(String arg1, String arg2)
+	{
+		if((arg1 == null && arg2 == null) || arg1.equals(arg2))
+		{
+			return true;
+		}
+
+		return false;
+	}
+
+	public static boolean notEquals(String arg1, String arg2)
+	{
+		return !equals(arg1, arg2);
+	}
 }

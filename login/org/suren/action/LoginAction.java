@@ -11,6 +11,7 @@ import org.suren.entity.User;
 import org.suren.servcie.UserService;
 import org.suren.task.WeatherTask;
 import org.suren.util.Encryption;
+import org.suren.util.string.StringUtil;
 
 
 /**
@@ -65,6 +66,11 @@ public class LoginAction extends BaseAction {
 	 */
 	public String execute()
 	{
+		if(StringUtil.isEmpty(account) && StringUtil.isEmpty(password))
+		{
+			return "back";
+		}
+
 		User user = service.findByAccount(account);
 
 		if(isLegal(user))

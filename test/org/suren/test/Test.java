@@ -24,6 +24,8 @@ public class Test
 
 			new Thread(new B_B_D(i)).start();
 		}
+
+		System.out.println(Test.class.getSimpleName());
 	}
 
 }

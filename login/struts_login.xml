@@ -19,15 +19,16 @@
 		</interceptors>
 
 		<action name="login" class="org.suren.action.LoginAction">
-			<result name="success">/index.jsp</result>
+			<result name="success" type="redirect">/index.jsp</result>
 			<result name="error">/page/login/login.jsp</result>
+			<result name="back" type="redirect">/page/login/login.jsp</result>
 			<result name="sign">/page/login/login.jsp</result>
 			<result name="json" type="json" />
 		</action>
 
 		<action name="user" class="org.suren.action.UserAction">
 			<result name="edit">/page/user/useredit.jsp</result>
-			<result name="success">/page/user/useredit.jsp</result>
+			<result name="success" type="redirect">/user!edit.action?id=${user.id}</result>
 		</action>
 	</package>
 </struts>

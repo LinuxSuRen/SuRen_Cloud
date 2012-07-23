@@ -25,7 +25,7 @@
 	<tr>
 		<td>Password:</td>
 		<td>
-			<input type="password" name="user.password" value="${user.gender }"/>
+			<input type="password" name="user.password" value="${user.password }"/>
 		</td>
 	</tr>
 	<tr>

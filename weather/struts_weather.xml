@@ -6,6 +6,7 @@
 	<package name="suren_weather" extends="suren">
 		<action name="weather" class="org.suren.action.WeatherAction">
 			<result name="success">/page/cities/cities.jsp</result>
+			<result name="init" type="redirect">/weather.action</result>
 		</action>
 	</package>
 </struts>

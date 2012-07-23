@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+-->
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:context="http://www.springframework.org/schema/context"
@@ -11,7 +14,7 @@
 	http://www.springframework.org/schema/tx
 	http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
 	http://www.springframework.org/schema/context
-	http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+	http://www.springframework.org/schema/context/spring-context-2.5.xsd">
 
 	<import resource="spring_weather.xml"/>
 
@@ -22,7 +25,8 @@
 		</property>
 	</bean>
 
-	<!-- -->
+	<!--
+	-->
 	<context:component-scan base-package='org.suren' />
 
 	<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" />
@@ -65,5 +69,7 @@
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 
+	<!--
+	 -->
 	<tx:annotation-driven transaction-manager="transactionManager" />
 </beans>

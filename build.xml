@@ -48,8 +48,11 @@
 			</fileset>
 			<fileset dir="${project}/article">
 			</fileset>
-			<fileset dir="${project}/test">
+			<fileset dir="${project}/weather">
 			</fileset>
+			<!--
+			<fileset dir="${project}/test">
+			</fileset>-->
 		</copy>
 	</target>
 

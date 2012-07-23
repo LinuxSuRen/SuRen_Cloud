@@ -48,7 +48,6 @@ public class WeatherAction extends BaseAction {
 	 * @throws IOException
 	 * @throws DocumentException
 	 */
-	@SuppressWarnings("unchecked")
 	public  String init() throws DocumentException, IOException
 	{
 		URL url = new URL("http://www.google.com/ig/cities?output=xml&hl=en-us&country=cn");
@@ -72,7 +71,7 @@ public class WeatherAction extends BaseAction {
 			cityService.save(city);
 		}
 
-		return execute();
+		return "init";
 	}
 
 	/**

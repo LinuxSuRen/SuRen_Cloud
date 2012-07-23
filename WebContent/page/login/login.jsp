@@ -37,6 +37,11 @@ $(function(){
 
 		return true;
 	}
+
+	var errorInfo = $("#login_error_info").html();
+	if($.trim(errorInfo) != ""){
+		$("#password").val("");
+	}
 });
 </script>
 <title>Login page.</title>
@@ -45,7 +50,9 @@ $(function(){
 <jsp:include page="../common/head.jsp" flush="true" />
 
 <div id="m">
+<div id="login_error_info">
 <c:if test="${error != null }">${error }</c:if>
+</div>
 <form action="${contextPath }/login.action" method="post">
 <table>
 	<tr>

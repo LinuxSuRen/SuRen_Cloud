@@ -18,9 +18,7 @@ import org.hibernate.annotations.GenericGenerator;
  */
 @Entity(name = "suren_user")
 public class User extends AbstractEntity implements Serializable{
-	/**
-	 *
-	 */
+
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GenericGenerator(name = "uuid", strategy = "uuid")

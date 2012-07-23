@@ -14,11 +14,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.log4j.Logger;
 import org.suren.core.SuRenContext;
 import org.suren.entity.AccountType;
 import org.suren.entity.User;
 import org.suren.filter.SuRenFilter;
+import org.suren.util.string.StringUtil;
 
 /**
  * @author suren
@@ -26,31 +26,17 @@ import org.suren.filter.SuRenFilter;
  */
 public class AuthorityFilter implements SuRenFilter {
 
-	private static final Logger log = Logger.getLogger(AuthorityFilter.class);
-
-	@SuppressWarnings("unused")
 	private FilterConfig filterConfig;
 
 	private static String contextPath;
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see javax.servlet.Filter#destroy()
-	 */
 	@Override
 	public void destroy() {
 		filterConfig = null;
 
-		log.debug("AuthorityFilter had destroyed.");
+		LOG.debug(getClass().getSimpleName() + " had destroyed.");
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see javax.servlet.Filter#doFilter(javax.servlet.ServletRequest,
-	 * javax.servlet.ServletResponse, javax.servlet.FilterChain)
-	 */
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain chain) throws IOException, ServletException {
@@ -73,11 +59,13 @@ public class AuthorityFilter implements SuRenFilter {
 			session.setAttribute(SuRenContext.SESSION, sessionUser);
 		}
 
-		log.debug("contextPath:" + contextPath);
-		log.debug("URI:" + uri);
-		log.debug("AccountType:" + sessionUser.getType());
+		LOG.debug("contextPath:" + contextPath);
+		LOG.debug("URI:" + uri);
+		LOG.debug("AccountType:" + sessionUser.getType());
 
-		if(sessionUser.getType() == AccountType.vistor && isNotLogin(uri))
+		if(sessionUser.getType() == AccountType.vistor && isNotLogin(uri) &&
+				StringUtil.notEquals(uri, contextPath) &&
+				StringUtil.notEquals(uri, contextPath + "/"))
 		{
 			httpResponse.sendRedirect(contextPath + "/page/login/login.jsp" );
 		}
@@ -87,18 +75,13 @@ public class AuthorityFilter implements SuRenFilter {
 		}
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see javax.servlet.Filter#init(javax.servlet.FilterConfig)
-	 */
 	@Override
 	public void init(FilterConfig config) throws ServletException {
 		filterConfig = config;
 
-		log.debug("server info : " + config.getServletContext().getServerInfo());
+		LOG.debug("server info : " + config.getServletContext().getServerInfo());
 
-		log.debug("AuthorityFilter is completed.");
+		LOG.debug(getClass().getSimpleName() + " is completed.");
 	}
 
 	private boolean isNotLogin(String uri)
@@ -113,5 +96,4 @@ public class AuthorityFilter implements SuRenFilter {
 				&& !uri.endsWith(".jpg")
 				&& !uri.endsWith(".jnlp"));
 	}
-
 }

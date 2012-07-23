@@ -82,7 +82,7 @@ public class ArticleAction extends BaseAction {
 
 		service.saveArticle(article);
 
-		return execute();
+		return "add";
 	}
 
 	public String fetchAttachment() {
