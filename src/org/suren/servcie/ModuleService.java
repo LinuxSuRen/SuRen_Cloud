@@ -34,4 +34,6 @@ public interface ModuleService
 	 */
 	Module findByID(String id);
 
+	void update(Module module);
+
 }

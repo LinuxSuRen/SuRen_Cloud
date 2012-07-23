@@ -34,9 +34,6 @@ public class ModuleServiceImpl implements ModuleService
 		dao.saveModule(module);
 	}
 
-	/* (non-Javadoc)
-	 * @see org.suren.servcie.ModuleService#delModule(org.suren.entity.Module)
-	 */
 	@Override
 	public void delModule(Module module)
 	{
@@ -50,14 +47,21 @@ public class ModuleServiceImpl implements ModuleService
 		return dao.findModule(module);
 	}
 
-	/* (non-Javadoc)
-	 * @see org.suren.servcie.ModuleService#findByID(java.lang.String)
-	 */
 	@Override
 	public Module findByID(String id)
 	{
-		// TODO Auto-generated method stub
-		return null;
+		Module module = new Module();
+
+		module.setId(id);
+
+		List<Module> modules = findModule(module);
+
+		return modules != null ? modules.get(0) : null;
 	}
 
+	@Override
+	public void update(Module module)
+	{
+		dao.updateModule(module);
+	}
 }

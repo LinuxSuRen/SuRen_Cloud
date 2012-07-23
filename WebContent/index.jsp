@@ -14,6 +14,7 @@
 <a href="${contextPath }/page/management/hostmanagement.jsp">Management</a>
 <a href="${contextPath }/user!edit.action?id=${session_user.id }">Edit User</a>
 <a href="${contextPath }/weather.action">City List.</a>
+<a href="${contextPath }/module.action">Module List.</a>
 <a href="${contextPath }/resources/suren.jnlp">SuRen_Mail</a>
 
 <%@include file="page/common/foot.jsp" %>

@@ -28,7 +28,7 @@ ServletResponseAware, Preparable
 {
 	private static final long	serialVersionUID	= 1L;
 
-	protected static final Logger log = Logger.getLogger(BaseAction.class);
+	protected static final Logger LOG = Logger.getLogger(BaseAction.class);
 
 	protected static final String SUCCESS = "success";
 	protected static final String ERROR = "error";

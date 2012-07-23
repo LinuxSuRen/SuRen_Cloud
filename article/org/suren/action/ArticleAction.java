@@ -50,9 +50,9 @@ public class ArticleAction extends BaseAction {
 	}
 
 	public String add() {
-		log.debug("add artitle : " + title);
-		log.debug("attachmentFileName:" + attachmentFileName);
-		log.debug("attachmentContentType:" + attachmentContentType);
+		LOG.debug("add artitle : " + title);
+		LOG.debug("attachmentFileName:" + attachmentFileName);
+		LOG.debug("attachmentContentType:" + attachmentContentType);
 
 		Article article = new Article();
 
@@ -88,7 +88,7 @@ public class ArticleAction extends BaseAction {
 	public String fetchAttachment() {
 		String attID = this.getRequest().getParameter("attID");
 
-		log.debug("attID:" + attID);
+		LOG.debug("attID:" + attID);
 
 		Attachment attachment = new Attachment();
 		attachment.setId(attID);
@@ -103,8 +103,8 @@ public class ArticleAction extends BaseAction {
 				setAttachmentContentType(att.getType());
 				setAttachmentFileName(att.getName());
 
-				log.debug("attachmentFileName:" + attachmentFileName);
-				log.debug("attachmentContentType:" + attachmentContentType);
+				LOG.debug("attachmentFileName:" + attachmentFileName);
+				LOG.debug("attachmentContentType:" + attachmentContentType);
 
 				attachmentStream = att.getContent().getBinaryStream();
 			} catch (SQLException e) {
@@ -123,7 +123,7 @@ public class ArticleAction extends BaseAction {
 	{
 		String id = this.getRequest().getParameter("id");
 
-		log.debug("id:" + id);
+		LOG.debug("id:" + id);
 
 		Article article = service.findByID(id);
 
@@ -139,7 +139,7 @@ public class ArticleAction extends BaseAction {
 				{
 					attachmentStream = content.getBinaryStream();
 
-					log.debug("found image:" + attachmentStream);
+					LOG.debug("found image:" + attachmentStream);
 				}
 			}
 		}

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="suren_core" extends="suren">
+		<action name="module" class="org.suren.action.ModuleAction">
+			<result name="success">/page/module/module.jsp</result>
+			<result name="edit" type="redirect">/module.action</result>
+		</action>
+	</package>
+</struts>

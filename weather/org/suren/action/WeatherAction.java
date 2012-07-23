@@ -31,9 +31,6 @@ public class WeatherAction extends BaseAction {
 
 	private List<City> cities;
 
-	/* (non-Javadoc)
-	 * @see org.suren.action.BaseAction#execute()
-	 */
 	@Override
 	public String execute()
 	{

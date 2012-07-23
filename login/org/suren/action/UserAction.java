@@ -41,7 +41,7 @@ public class UserAction extends BaseAction {
 	public String edit()
 	{
 		String id = this.getRequest().getParameter("id");
-		log.debug("user'id: " + id);
+		LOG.debug("user'id: " + id);
 
 		user = service.findByID(id);
 

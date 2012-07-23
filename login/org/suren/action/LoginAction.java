@@ -52,7 +52,7 @@ public class LoginAction extends BaseAction {
 	 */
 	public String existed()
 	{
-		log.debug("account:" + account);
+		LOG.debug("account:" + account);
 
 		User user = service.findByAccount(account);
 
@@ -77,12 +77,12 @@ public class LoginAction extends BaseAction {
 		{
 			this.getRequest().getSession().setAttribute(SuRenContext.SESSION, user);
 
-			log.debug("login success");
+			LOG.debug("login success");
 
 			return SUCCESS;
 		}
 
-		log.debug("login error");
+		LOG.debug("login error");
 
 		return ERROR;
 	}
