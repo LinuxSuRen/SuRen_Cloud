@@ -26,11 +26,11 @@ public class CacheAction extends BaseAction
 	{
 //		studentService.findByAge(2);
 		
-		log.debug("id :" + id);
+		LOG.debug("id :" + id);
 		
 		Student stu = studentService.findById(id);
 		
-		log.debug(stu == null);
+		LOG.debug(stu == null);
 		
 		stu.getAge();
 		

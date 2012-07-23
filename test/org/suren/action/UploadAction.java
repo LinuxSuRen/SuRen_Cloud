@@ -19,7 +19,7 @@ public class UploadAction extends BaseAction
 	
 	public String execute()
 	{
-		log.info(file.getAbsolutePath());
+		LOG.info(file.getAbsolutePath());
 		
 		return UPLOAD;
 	}
