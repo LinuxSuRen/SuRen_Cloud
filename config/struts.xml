@@ -9,8 +9,8 @@
 	<constant name="struts.multipart.maxSize" value="999999999" />
 
 	<!--
-	<include file="struts_test.xml"></include>
 	-->
+	<include file="struts_test.xml"></include>
 	<include file="struts_core.xml"></include>
 	<include file="struts_login.xml"></include>
 	<include file="struts_article.xml"></include>

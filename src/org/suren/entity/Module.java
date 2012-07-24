@@ -28,7 +28,10 @@ public class Module extends AbstractEntity implements Serializable
 	private String id;
 	@Column(unique = true, nullable = true)
 	private String name;
-	private String link;
+	private String action;
+	private String home;
+	private Boolean visible;
+	private String desc;
 	private Date createDate;
 	private Date modifyDate;
 
@@ -61,18 +64,60 @@ public class Module extends AbstractEntity implements Serializable
 		this.name = name;
 	}
 	/**
-	 * @return the link
+	 * @return the action
 	 */
-	public String getLink()
+	public String getAction()
 	{
-		return link;
+		return action;
 	}
 	/**
-	 * @param link the link to set
+	 * @param action the action to set
 	 */
-	public void setLink(String link)
+	public void setAction(String action)
 	{
-		this.link = link;
+		this.action = action;
+	}
+	/**
+	 * @return the home
+	 */
+	public String getHome()
+	{
+		return home;
+	}
+	/**
+	 * @param home the home to set
+	 */
+	public void setHome(String home)
+	{
+		this.home = home;
+	}
+	/**
+	 * @return the visible
+	 */
+	public Boolean getVisible()
+	{
+		return visible;
+	}
+	/**
+	 * @param visible the visible to set
+	 */
+	public void setVisible(Boolean visible)
+	{
+		this.visible = visible;
+	}
+	/**
+	 * @return the desc
+	 */
+	public String getDesc()
+	{
+		return desc;
+	}
+	/**
+	 * @param desc the desc to set
+	 */
+	public void setDesc(String desc)
+	{
+		this.desc = desc;
 	}
 	/**
 	 * @return the createDate

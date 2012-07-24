@@ -24,7 +24,7 @@ import org.suren.util.string.StringUtil;
  * @author suren
  *
  */
-public class AuthorityFilter implements SuRenFilter {
+public class AuthorityFilter extends SuRenFilter {
 
 	private FilterConfig filterConfig;
 
@@ -34,7 +34,7 @@ public class AuthorityFilter implements SuRenFilter {
 	public void destroy() {
 		filterConfig = null;
 
-		LOG.debug(getClass().getSimpleName() + " had destroyed.");
+		LOG.debug(destroyLogMsg());
 	}
 
 	@Override
@@ -81,7 +81,7 @@ public class AuthorityFilter implements SuRenFilter {
 
 		LOG.debug("server info : " + config.getServletContext().getServerInfo());
 
-		LOG.debug(getClass().getSimpleName() + " is completed.");
+		LOG.debug(initLogMsg());
 	}
 
 	private boolean isNotLogin(String uri)

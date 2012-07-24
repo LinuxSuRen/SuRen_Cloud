@@ -45,7 +45,7 @@ public class ModuleDaoImpl extends BaseDao<Module> implements ModuleDao
 				criteria.add(Restrictions.eq("id", module.getId()));
 			}
 
-			if(module.getName() != null)
+			if(StringUtil.isNotEmpty(module.getName()))
 			{
 				criteria.add(Restrictions.eq("name", module.getName()));
 			}

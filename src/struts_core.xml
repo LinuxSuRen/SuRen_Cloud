@@ -6,7 +6,14 @@
 	<package name="suren_core" extends="suren">
 		<action name="module" class="org.suren.action.ModuleAction">
 			<result name="success">/page/module/module.jsp</result>
-			<result name="edit" type="redirect">/module.action</result>
+			<result name="edit">/page/module/module_edit.jsp</result>
+			<result name="save" type="redirect">/module.action</result>
+			<result name="json" type="json">
+				<param name="includeProperties">module, module.name</param>
+			</result>
+		</action>
+		<action name="visitor" class="org.suren.action.VisitorAction">
+			<result name="success">/page/user/visitors.jsp</result>
 		</action>
 	</package>
 </struts>

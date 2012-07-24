@@ -23,14 +23,14 @@ import org.suren.servcie.VisitorService;
  * @author suren
  * 收集用户访问信息
  */
-public class VisitorFilter implements SuRenFilter
+public class VisitorFilter extends SuRenFilter
 {
 	private VisitorService service;
 
 	@Override
 	public void destroy()
 	{
-		LOG.debug(getClass().getSimpleName() + " had destroyed.");
+		LOG.debug(destroyLogMsg());
 	}
 
 	@Override
@@ -73,6 +73,6 @@ public class VisitorFilter implements SuRenFilter
 
 		service = (VisitorService) context.getBean("visitorServiceIpml");
 
-		LOG.debug(getClass().getSimpleName() + " is completed.");
+		LOG.debug(initLogMsg());
 	}
 }

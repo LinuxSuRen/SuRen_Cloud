@@ -56,7 +56,19 @@ public class ModuleServiceImpl implements ModuleService
 
 		List<Module> modules = findModule(module);
 
-		return modules != null ? modules.get(0) : null;
+		return modules != null  && modules.size() > 0 ? modules.get(0) : null;
+	}
+
+	@Override
+	public Module findByName(String name)
+	{
+		Module module = new Module();
+
+		module.setName(name);
+
+		List<Module> modules = findModule(module);
+
+		return modules != null  && modules.size() > 0 ? modules.get(0) : null;
 	}
 
 	@Override
